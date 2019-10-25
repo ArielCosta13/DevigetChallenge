@@ -3,9 +3,15 @@
 
 <suite name="Deviget Challenge Test Suite">
 
-    <test name="Basic Test">
+    <test name="Basic Navigation to AliExpress Test">
         <classes>
             <class name="com.deviget.automation.uitests.BasicTest"/>
+        </classes>
+    </test>
+
+    <test name="Basic Search Test">
+        <classes>
+            <class name="com.deviget.automation.uitests.SearchTest"/>
         </classes>
     </test>
 
