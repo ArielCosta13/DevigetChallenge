@@ -13,7 +13,6 @@ public class SearchTest extends BaseTest {
 
     @Test
     public void iPhoneSearch() throws InterruptedException {
-        driver.navigate().to("https://www.aliexpress.com/");
         if (driver.findElement(By.cssSelector(".ui-window-content")).isDisplayed()){
             driver.findElement(By.cssSelector(".close-layer")).click();
         }

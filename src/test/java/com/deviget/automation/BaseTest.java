@@ -13,12 +13,27 @@ public  class BaseTest  {
 
     public WebDriver driver;
 
+    @Parameters( {"baseurl","browser"})
     @BeforeTest
-    public void setupTestEnvironment(){
-        System.setProperty("webdriver.chrome.driver","./src/test/resources/chromedriver/chromedriver");
-        driver = new ChromeDriver();
+    public void setupTestEnvironment(String baseUrl, String browser){
+        selectBrowser(browser);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
+        driver.navigate().to(baseUrl);
+    }
+
+    private void selectBrowser(String browser){
+        if (browser.equals("chrome")){
+            System.setProperty("webdriver.chrome.driver","./src/test/resources/chromedriver/chromedriver");
+            driver = new ChromeDriver();
+        } else if (browser.equals("firefox")){
+            System.setProperty("webdriver.chrome.driver","./src/test/resources/geckodriver/geckodriver");
+            driver = new ChromeDriver();
+        }else{
+            System.setProperty("webdriver.chrome.driver","./src/test/resources/chromedriver/chromedriver");
+            driver = new ChromeDriver();
+        }
+
     }
 
     @AfterTest
