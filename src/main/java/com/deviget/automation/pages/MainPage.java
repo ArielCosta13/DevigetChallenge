@@ -30,6 +30,7 @@ public class MainPage extends BasePage{
     private List<WebElement> itemList;
 
     public MainPage fillSearchField(String itemToSearch){
+        updateAndReportStatusPageAction("Filling Search field with: " + itemToSearch);
         searchField.sendKeys(itemToSearch);
         return this;
     }

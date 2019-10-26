@@ -12,9 +12,10 @@ public class SearchTest extends BaseTest {
 
     @Test
     public void iPhoneSearch() throws InterruptedException {
+        updateAndReportStatus("Search Test for Iphone value");
         MainPage mainPage = PageFactory.initElements(driver,MainPage.class);
         mainPage.closeAd();
-        mainPage.fillSearchField("IPhone").clickOnSearchButton();
+        mainPage.fillSearchField("Iphone").clickOnSearchButton();
         List<String> itemslist1 = mainPage.getSearchResultItemList();
         Assert.assertTrue(itemslist1.get(2).toLowerCase().contains("iphone"));
         mainPage.clickOnPage(driver,"2");
@@ -23,5 +24,6 @@ public class SearchTest extends BaseTest {
         Assert.assertNotNull(itemslist2.get(2));
         Assert.assertTrue(itemslist2.get(2).toLowerCase().contains("iphone"));
         Assert.assertNotEquals(itemslist2.get(2),itemslist1.get(2));
+        updateAndReportStatus("Test Finished OK");
     }
 }

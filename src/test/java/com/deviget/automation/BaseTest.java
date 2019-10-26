@@ -40,6 +40,10 @@ public  class BaseTest  {
         return driver.getCurrentUrl();
     }
 
+    protected void updateAndReportStatus(String newStatus) {
+        System.out.println( newStatus );
+    }
+
     @AfterTest
     public void tearDownTest(){
         driver.quit();
