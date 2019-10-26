@@ -19,3 +19,5 @@ Second step will be to have a working test that meet the requirement asked:
 
 Third step will be to add the Page Object design pattern 
 (COMPLETED)
+
+Last Step will be to clean code and add some logging features
