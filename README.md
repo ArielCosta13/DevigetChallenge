@@ -18,4 +18,4 @@ Second step will be to have a working test that meet the requirement asked:
 (COMPLETED)
 
 Third step will be to add the Page Object design pattern 
-(IN PROGRESS)
+(COMPLETED)
