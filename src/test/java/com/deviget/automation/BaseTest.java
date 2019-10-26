@@ -36,6 +36,10 @@ public  class BaseTest  {
 
     }
 
+    public String getCurrentUrl(){
+        return driver.getCurrentUrl();
+    }
+
     @AfterTest
     public void tearDownTest(){
         driver.quit();

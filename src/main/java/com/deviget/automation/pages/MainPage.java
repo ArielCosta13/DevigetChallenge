@@ -10,6 +10,8 @@ import org.openqa.selenium.support.How;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.Thread.*;
+
 public class MainPage extends BasePage{
 
     @FindBy(how = How.CSS, using = ".ui-window-content")
@@ -33,7 +35,7 @@ public class MainPage extends BasePage{
     }
 
     public MainPage clickOnSearchButton(){
-        updateAndReportStatusPageInformation("Clicking on search Button");
+        updateAndReportStatusPageAction("Clicking on search Button");
         searchButton.click();
         return this;
     }
@@ -46,9 +48,11 @@ public class MainPage extends BasePage{
         return items;
     }
 
-    public MainPage clickOnPage(WebDriver driver, String number){
+    public MainPage clickOnPage(WebDriver driver, String number) throws InterruptedException {
+        updateAndReportStatusPageAction("Clicking on search result page " + number );
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", itemList.get(itemList.size()-1));
-        driver.findElement(By.xpath("//button[.='2']")).click();
+        driver.findElement(By.xpath("//button[.='" + number + "']")).click();
+        sleep(5000);
         return this;
     }
 
@@ -57,7 +61,7 @@ public class MainPage extends BasePage{
             if (ad.isDisplayed()){
                 adClose.click();
             }
-            updateAndReportStatusPageInformation("Ad closed");
+            updateAndReportStatusPageAction("Ad closed");
         }catch (Exception e){
             updateAndReportStatusPageInformation("No Ad was displayed");
         }
